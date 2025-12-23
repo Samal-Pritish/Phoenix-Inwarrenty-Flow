@@ -22,8 +22,8 @@ on:
 
   # Setting up the CRON timings
   schedule:
-    - cron: 30 2 * * 1-5
-    - cron: 0 14 * * 1-5
+    - cron: '30 2 * * 1-5'
+    - cron: '0 14 * * 1-5'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -36,22 +36,22 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout code
-      - uses: actions/checkout@v6.0.1
+        uses: actions/checkout@v6.0.1
 
       # Install node.js
       - name: Install node.js
         uses: actions/setup-node@v6.1.0
         with:
-          node-version: 22
+          node-version: '20'
 
        # Install newman
       - name: Install newman
-        run: 
+        run: |
           npm install -g newman
 
        # Install newman-reporter-htmlextra
       - name: Install modern html reporter
-        run: 
+        run: |
           npm install -g newman-reporter-htmlextra
 
        # Above two steps can be clubed together
