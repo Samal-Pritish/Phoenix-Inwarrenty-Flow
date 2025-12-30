@@ -65,7 +65,8 @@ jobs:
         run: |
           newman run 'Phoenix-Inwarrenty-Flow.postman_collection.json' \
           -e 'QA.postman_environment.json' \
-          -r cli,htmlextra
+          -r cli,htmlextra \
+          --reporter-htmlextra-export ./newman/index.html
 
       # Archieve Execution Report
       - name: Archieve Execution Report
@@ -82,7 +83,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4.0.0
         with:
            github_token: ${{ secrets.GITHUB_TOKEN }}
-           publish_dir: newman
+           publish_dir: newman/
           
         
         
